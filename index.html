@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Social vulnerability predicted through remoteness indicators for Malawi</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+        <link rel="stylesheet" type="text/css" href="css/site.css"/>
+        <link rel="stylesheet" type="text/css" href="css/leaflet-grid-graph.css"/>
+        <script src="js/jquery.js"></script>
+        <script src="js/d3.min.js"></script>
+        <script src="js/crossfilter.v1.min.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/topojson.v1.min.js"></script> 
+        <script src="js/leaflet-grid-graph.js"></script>
+        <script src="js/papaparse.min.js"></script>  
+    </head>
+    <body class="container">
+        <div class="row">
+            <div class="col-md-12">
+			<!--Removed the below line to show the 510 logo on a separate line. Display behaviour in IE 11 and Chrome is now the same. -->
+				<!--<div style="display:flex">-->
+					<img src="images/510.PNG" style="height: 80px; top: 50px">
+					<div>
+						<!--Full title is now shown on one line: -->
+						<h1>Social vulnerability - Malawi - Remoteness as a proxy</h1>
+					</div>
+				<!-- </div> -->		
+                <p class="titledesc">
+				This dashboard offers two overviews (1): the 'Social Vulnerability Index' (SoVI) (Y-variable) adapted from RCMRD vulnerability index with the 'Remoteness Indicators' (X-variables) developed through the scripted GIS analysis (2): The outputs of the multi-variate linear regression model (LM) and the random forest model (RF) with the over- and under-prediction indicated for both models. The over-prediction is indicated in the purple colour			</br>
+				Two options are available: click to select one: (The 1st is standard) 
+				</div>
+				<!-- Colour settings of buttons have been changed to meet user-experience requirements. Green indicates: selected button. -->	
+				<button style="background-color: green; margin-right=5px;" class="btn btn-primary btn-sm" id="run2">(1) SoVI - remoteness indicators</button>
+				<button style="background-color: grey" class="btn btn-primary btn-sm" id="run1">(2) SoVI - LM & RF predictions </button>
+				<ul>
+					<li><b>Option 1:</b> 'Social Vulnerability' (SoVI) and the developed remoteness indicators: Settlement Density, Number of Settlements, Settlement Size, Road Length, Road Density, Mean Ruggedness, Travel time to Major Hospitals, Secondary Schools, Primary Schools, Major Cities, Trading Centres, and Waterpoints.  </li>
+					<li><b>Option 2:</b> The predictions of the multi-variate linear regression model (LM) and the Random Forest Model outputs are shown. Subsequently, the over- and under-prediction of the models are shown where red is over-estimation and purple is under-estimation, all the yellow areas (Admin level 3 Traditional Authorities) are reasonable predictions (+- 15%). </li>
+				</ul>
+				</div>
+			</div>
+        </div>
+        <div class="row">           
+            <div class="col-md-4">
+				<button style="margin-bottom:10px;font-weight:bold;margin-right: 1px;background-color: #ffffb2;cursor:default; color:black" class="btn btn-primary btn-sm">Lower quadrant</button>
+				<button style="margin-bottom:10px;font-weight:bold;margin-right: 1px;background-color: #fd8d3c;cursor:default; color:black" class="btn btn-primary btn-sm">Second quadrant</button>
+				<button style="margin-bottom:10px;font-weight:bold;margin-right: 1px;background-color: #f03b20;cursor:default; color:black" class="btn btn-primary btn-sm">Third quadrant</button>
+				<button style="margin-bottom:10px;font-weight:bold;margin-right: 1px;background-color: #bd0026;cursor:default" class="btn btn-primary btn-sm">Upper quadrant</button>
+				<br>
+                <div id="sticky-anchor"></div>
+                <div id="map-container" style="margin-bottom:20px;"><div id="map"></div></div>
+            </div>
+            <div class="col-md-8">
+			    <div id="grid1"></div>			
+            </div>
+        </div>
+        </div>
+		Dashboard made by Jurg Wilbrink: jwilbrink(at)RedCross(dot)nl
+        <script src="js/site.js"></script>
+    </body>
+</html>
